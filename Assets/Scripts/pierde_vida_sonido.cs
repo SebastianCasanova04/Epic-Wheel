@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pierde_vida_sonido : MonoBehaviour
 {
-    private AudioSource sonido;
+    public AudioSource sonido;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,8 +14,11 @@ public class pierde_vida_sonido : MonoBehaviour
     // Update is called once per frame
     void OnCollisionEnter(Collision other) 
     {
+        if(other.gameObject.CompareTag("obstaculo"))
+        {
+            sonido.Play();
+        }
         
-        sonido.Play();
         
 
     }
